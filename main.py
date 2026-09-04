@@ -195,38 +195,71 @@ HTML_CONTENT = """
   <meta charset="UTF-8">
   <title>SentinAI Risk Shield</title>
   <style>
-    body { background-color: #0b0f19; color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 24px; }
-    .container { max-width: 800px; margin: 0 auto; }
+    body { background-color: #0b0f19; color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 24px; margin: 0; }
+    .container { max-width: 860px; margin: 0 auto; }
     .card { background: #111827; border: 1px solid #1f2937; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .btn { background: #2563eb; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+    .btn { background: #2563eb; color: white; border: none; padding: 12px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 14px; font-size: 14px; }
     .btn:hover { background: #1d4ed8; }
-    .preset-btn { background: #1f2937; color: #93c5fd; border: 1px solid #374151; padding: 8px; border-radius: 6px; cursor: pointer; text-align: left; font-size: 12px; }
-    input, select { width: 100%; background: #030712; border: 1px solid #374151; color: white; padding: 8px; border-radius: 6px; box-sizing: border-box; margin-top: 4px; }
-    label { font-size: 12px; color: #9ca3af; }
-    .badge { display: inline-block; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 16px; margin: 8px 0; }
+    .preset-btn { background: #1f2937; color: #93c5fd; border: 1px solid #374151; padding: 10px; border-radius: 6px; cursor: pointer; text-align: left; font-size: 12px; transition: 0.2s; }
+    .preset-btn:hover { background: #374151; }
+    input, select { width: 100%; background: #030712; border: 1px solid #374151; color: white; padding: 8px 10px; border-radius: 6px; box-sizing: border-box; margin-top: 4px; font-size: 13px; }
+    label { font-size: 12px; color: #9ca3af; font-weight: 500; }
+    .badge { display: inline-block; padding: 6px 14px; border-radius: 6px; font-weight: bold; font-size: 15px; margin: 8px 0; }
     .approve { background: #064e3b; color: #34d399; border: 1px solid #059669; }
     .challenge { background: #78350f; color: #fbbf24; border: 1px solid #d97706; }
     .decline { background: #7f1d1d; color: #f87171; border: 1px solid #dc2626; }
+    
+    /* Architectural Workflow Box */
+    .arch-container { background: #0d1527; border: 1px solid #1e3a8a; border-radius: 10px; padding: 16px; margin-bottom: 20px; }
+    .arch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .arch-title { font-size: 12px; font-weight: 700; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; }
+    .arch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .arch-step { background: #111827; border: 1px solid #1f2937; border-left: 3px solid #38bdf8; padding: 10px 12px; border-radius: 6px; }
+    .arch-step-title { font-size: 13px; font-weight: 600; color: #f8fafc; margin-bottom: 4px; }
+    .arch-step-desc { font-size: 11px; color: #94a3b8; line-height: 1.4; }
   </style>
 </head>
 <body>
   <div class="container">
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1f2937; padding-bottom:12px; margin-bottom:20px;">
+    <!-- Header -->
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1f2937; padding-bottom:14px; margin-bottom:18px;">
       <div>
-        <h1 style="margin:0; color:#60a5fa; font-size:22px;">SentinAI Risk Shield</h1>
-        <p style="margin:4px 0 0 0; color:#9ca3af; font-size:12px;">Real-Time Multi-Agent Fraud Adjudication</p>
+        <h1 style="margin:0; color:#60a5fa; font-size:22px; font-weight:700;">SentinAI Risk Shield</h1>
+        <p style="margin:4px 0 0 0; color:#9ca3af; font-size:12px;">Real-Time Autonomous Multi-Agent Payment Risk Engine</p>
       </div>
-      <span style="background:#064e3b; color:#34d399; border:1px solid #059669; padding:4px 8px; border-radius:12px; font-size:11px;">Active</span>
+      <span style="background:#064e3b; color:#34d399; border:1px solid #059669; padding:4px 10px; border-radius:12px; font-size:11px; font-weight:600;">Engine Active</span>
+    </div>
+
+    <!-- System Architecture Workflow -->
+    <div class="arch-container">
+      <div class="arch-header">
+        <span class="arch-title">Two-Tier Architecture Workflow</span>
+        <span style="font-size: 11px; color: #64748b;">Sub-5ms Inline Adjudication</span>
+      </div>
+      <div class="arch-grid">
+        <div class="arch-step">
+          <div class="arch-step-title" style="color:#38bdf8;">1. Tier-1 Perimeter</div>
+          <div class="arch-step-desc">Sliding-window velocity tracking (&lt;5ms) & heuristic filters. Scores &lt;0.35 approve instantly.</div>
+        </div>
+        <div class="arch-step" style="border-left-color: #fbbf24;">
+          <div class="arch-step-title" style="color:#fbbf24;">2. Tier-2 Consensus</div>
+          <div class="arch-step-desc">Triggers on scores 0.35–0.79. Evaluates telemetry & merchant risk via multi-agent consensus.</div>
+        </div>
+        <div class="arch-step" style="border-left-color: #34d399;">
+          <div class="arch-step-title" style="color:#34d399;">3. Adaptive Routing</div>
+          <div class="arch-step-desc">Directs to 1-click <code>APPROVE</code>, step-up <code>CHALLENGE_OTP</code>, or hard perimeter <code>DECLINE</code>.</div>
+        </div>
+      </div>
     </div>
 
     <!-- Presets -->
     <div style="margin-bottom:16px;">
-      <div style="font-size:12px; color:#9ca3af; margin-bottom:6px;">Select Preset Scenario:</div>
+      <div style="font-size:12px; color:#9ca3af; margin-bottom:6px; font-weight:500;">Select Preset Scenario:</div>
       <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:8px;">
-        <button class="preset-btn" onclick="applyPreset('safe')"><b>1. Safe User</b><br>INR 850 (Clean)</button>
-        <button class="preset-btn" onclick="applyPreset('borderline')"><b>2. Velocity Alert</b><br>INR 62,000 (Borderline)</button>
-        <button class="preset-btn" onclick="applyPreset('attack')"><b>3. Proxy / VPN</b><br>INR 95,000 (Attack)</button>
+        <button class="preset-btn" onclick="applyPreset('safe')"><b>1. Safe User</b><br>INR 850 (Clean Domestic)</button>
+        <button class="preset-btn" onclick="applyPreset('borderline')"><b>2. Velocity Alert</b><br>INR 62,000 (Borderline Case)</button>
+        <button class="preset-btn" onclick="applyPreset('attack')"><b>3. Proxy / VPN</b><br>INR 95,000 (Cross-Border Attack)</button>
       </div>
     </div>
 
@@ -264,15 +297,15 @@ HTML_CONTENT = """
     <!-- Output -->
     <div id="outputContainer" class="card" style="display:none;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:12px; color:#9ca3af;">Gateway Verdict:</span>
-        <span id="latencyBadge" style="font-size:12px; color:#60a5fa; font-family:monospace;"></span>
+        <span style="font-size:12px; color:#9ca3af; font-weight:500;">Gateway Verdict:</span>
+        <span id="latencyBadge" style="font-size:12px; color:#60a5fa; font-family:monospace; font-weight:600;"></span>
       </div>
       <div id="verdictBadge" class="badge"></div>
-      <div style="background:#030712; border:1px solid #1f2937; padding:12px; border-radius:6px; margin-top:10px; font-size:12px;">
-        <div><b>Routing:</b> <span id="routingBadge" style="color:#60a5fa;"></span></div>
+      <div style="background:#030712; border:1px solid #1f2937; padding:12px; border-radius:6px; margin-top:10px; font-size:12px; line-height:1.6;">
+        <div><b>Routing Tier:</b> <span id="routingBadge" style="color:#60a5fa;"></span></div>
         <div><b>Tier-1 Base Score:</b> <span id="t1ScoreBadge" style="color:#60a5fa;"></span></div>
         <div><b>Velocity Count:</b> <span id="velocityBadge" style="color:#60a5fa;"></span></div>
-        <div style="margin-top:6px;"><b>Rationale:</b> <span id="rationaleText" style="color:#cbd5e1;"></span></div>
+        <div style="margin-top:4px;"><b>Rationale:</b> <span id="rationaleText" style="color:#cbd5e1;"></span></div>
       </div>
     </div>
   </div>
